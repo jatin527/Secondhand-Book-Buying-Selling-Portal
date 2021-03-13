@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding-bottom: 10px;
+}
+
+h1.logo {
+    padding-top: 30px;
+    font-size: 40px;
+    color: #5caae9;
+    font-weight: bold;
+}
+
+li.nav-item a {
+    color: white;
+    font-size: 18px;
+}
+
+i.fas {
+    font-size: 18px;
+}
+
+.row1 {
+    background-color: #434c69;
+}
+
+.row2 {
+    background-color: #3B4051;
+}
