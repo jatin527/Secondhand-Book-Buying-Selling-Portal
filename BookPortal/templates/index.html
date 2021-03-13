@@ -1,12 +1,15 @@
 <!--doctype html-->
+{% load static %}
+{% static 'images' as baseUrl %}
+<!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <title>Product-slider</title>
     <!--Adding Links  -->
-    <link rel="stylesheet" href="css/swiper.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 </head>
 
 <body>
@@ -75,21 +78,7 @@
 
 
             <!--slide 4-------------------------------------->
-            <div class="swiper-slide">
-                <div class="slider-box">
-                    <p class="time">New</p>
-                    <div class="img-box">
-                        <img src="images/images-4.jpeg">
-                    </div>
-                    <p class="detail">Book Name
-                        <a href="#" class="price">Price-40$</a>
-                    </p>
-                    <div class="cart">
-                        <a href="#">Add To Cart</a>
-                    </div>
-                </div>
-
-            </div>
+            
 
 
 
@@ -189,7 +178,7 @@
                 <div class="slider-box">
                     <p class="time">New</p>
                     <div class="img-box">
-                        <img src="images/images-5.jpeg">
+                        <img src="{% static 'images/images-5.jpeg' %}">
                     </div>
                     <p class="detail">Book Name
                         <a href="#" class="price">Price-40$</a>
@@ -241,8 +230,8 @@
     </div>
     <!--swiper  slider end-->
 
-    <script type="text/javascript" src="js/swiper.min.js"></script>
-    <script src="js/script.js"></script>
+    <script type="text/javascript" src="{% static 'js/swiper.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 
 </html>
