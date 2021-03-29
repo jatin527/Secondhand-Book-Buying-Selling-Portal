@@ -90,11 +90,16 @@
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <!--slide 1-------------------------------------->
+            {% if  not books %}
+            <!-- Isko sundar kardo bas. -->
+            <h1 style="text-align: center;">No books to display as of now</h1>
+            {% else %}
+            <p>{{books}}</p>
             <div class="swiper-slide">
                 <div class="slider-box">
                     <p class="time">New</p>
                     <div class="img-box">
-                        <img src="../static/images/images.jpeg">
+                        <img src="{% static 'images/images.jpeg' %}">
                     </div>
                     <p class="detail">Book Name
                         <a href="#" class="price">Price-40$</a>
@@ -104,198 +109,8 @@
                     </div>
                 </div>
             </div>
-
-
-
-            <!--slide 2-------------------------------------->
-            <div class="swiper-slide">
-                <div class="slider-box">
-                    <p class="time">New</p>
-                    <div class="img-box">
-                        <img src="../static/images/images-2.jpeg">
-                    </div>
-                    <p class="detail">Book Name
-                        <a href="#" class="price">Price-40$</a>
-                    </p>
-                    <div class="cart">
-                        <a href="#">Add To Cart</a>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-
-
-            <!--slide 3-------------------------------------->
-            <div class="swiper-slide">
-                <div class="slider-box">
-                    <p class="time">New</p>
-                    <div class="img-box">
-                        <img src="../static/images/images-3.jpeg">
-                    </div>
-                    <p class="detail">Book Name
-                        <a href="#" class="price">Price-40$</a>
-                    </p>
-                    <div class="cart">
-                        <a href="#">Add To Cart</a>
-                    </div>
-                </div>
-
-            </div>
-
-
-
-
-            <!--slide 4-------------------------------------->
-
-
-
-
-            <!--slide 5-------------------------------------->
-            <div class="swiper-slide">
-                <div class="slider-box">
-                    <p class="time">New</p>
-                    <div class="img-box">
-                        <img src="../static/images/images-5.jpeg">
-                    </div>
-                    <p class="detail">Book Name
-                        <a href="#" class="price">Price-40$</a>
-                    </p>
-                    <div class="cart">
-                        <a href="#">Add To Cart</a>
-                    </div>
-                </div>
-            </div>
-
-            <!--slide 6-------------------------------------->
-            <div class="swiper-slide">
-                <div class="slider-box">
-                    <p class="time">New</p>
-                    <div class="img-box">
-                        <img src="../static/images/images.jpeg">
-                    </div>
-                    <p class="detail">Book Name
-                        <a href="#" class="price">Price-40$</a>
-                    </p>
-                    <div class="cart">
-                        <a href="#">Add To Cart</a>
-                    </div>
-                </div>
-            </div>
-
-            <!--slide 1-------------------------------------->
-            <div class="swiper-slide">
-                <div class="slider-box">
-                    <p class="time">New</p>
-                    <div class="img-box">
-                        <img src="../static/images/images-2.jpeg">
-                    </div>
-                    <p class="detail">Book Name
-                        <a href="#" class="price">Price-40$</a>
-                    </p>
-                    <div class="cart">
-                        <a href="#">Add To Cart</a>
-                    </div>
-                </div>
-
-            </div>
-
-
-
-            <!--slide 2-------------------------------------->
-            <div class="swiper-slide">
-                <div class="slider-box">
-                    <p class="time">New</p>
-                    <div class="img-box">
-                        <img src="../static/images/images-3.jpeg">
-                    </div>
-                    <p class="detail">Book Name
-                        <a href="#" class="price">Price-40$</a>
-                    </p>
-                    <div class="cart">
-                        <a href="#">Add To Cart</a>
-                    </div>
-                </div>
-
-            </div>
-
-
-
-
-            <!--slide 3-------------------------------------->
-            <div class="swiper-slide">
-                <div class="slider-box">
-                    <p class="time">New</p>
-                    <div class="img-box">
-                        <img src="../static/images/images-4.jpeg">
-                    </div>
-                    <p class="detail">Book Name
-                        <a href="#" class="price">Price-40$</a>
-                    </p>
-                    <div class="cart">
-                        <a href="#">Add To Cart</a>
-                    </div>
-                </div>
-
-            </div>
-
-
-
-
-            <!--slide 4-------------------------------------->
-            <div class="swiper-slide">
-                <div class="slider-box">
-                    <p class="time">New</p>
-                    <div class="img-box">
-                        <img src="{% static 'images/images-5.jpeg' %}">
-                    </div>
-                    <p class="detail">Book Name
-                        <a href="#" class="price">Price-40$</a>
-                    </p>
-                    <div class="cart">
-                        <a href="#">Add To Cart</a>
-                    </div>
-                </div>
-
-            </div>
-
-
-
-            <!--slide 5-------------------------------------->
-            <div class="swiper-slide">
-                <div class="slider-box">
-                    <p class="time">New</p>
-                    <div class="img-box">
-                        <img src="../static/images/images.jpeg">
-                    </div>
-                    <p class="detail">Book Name
-                        <a href="#" class="price">Price-40$</a>
-                    </p>
-                    <div class="cart">
-                        <a href="#">Add To Cart</a>
-                    </div>
-                </div>
-            </div>
-
-            <!--slide 6-------------------------------------->
-            <div class="swiper-slide">
-                <div class="slider-box">
-                    <p class="time">New</p>
-                    <div class="img-box">
-                        <img src="../static/images/images-2.jpeg">
-                    </div>
-                    <p class="detail">Book Name
-                        <a href="#" class="price">Price-40$</a>
-                    </p>
-                    <div class="cart">
-                        <a href="#">Add To Cart</a>
-                    </div>
-                </div>
-            </div>
-
-
+            {% endif %}
+            
         </div>
         <div class="swiper-pagination"></div>
     </div>

@@ -76,8 +76,13 @@ WSGI_APPLICATION = 'BookPortal.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': 'SecondHandBooks',
+        'CLIENT': {
+            'host': '172.19.16.95',
+            'username': 'admin',
+            'password': 'admin',
+        }
     }
 }
 
