@@ -9,6 +9,6 @@ class ViewBooks(models.Model):
     author = models.CharField(max_length=100)
     publisher = models.CharField(max_length=100)
     price = models.IntegerField()
-    image = models.FileField()
+    image = models.FileField(upload_to="booksImage")
     new = models.BooleanField()
     userid = models.CharField(max_length=50)
