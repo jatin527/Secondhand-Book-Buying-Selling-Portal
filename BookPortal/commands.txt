@@ -1,3 +1,7 @@
 --Only for Shreyans's Macbook Air--
 
 activate venv: source ../../../Sample1/bin/activate
+
+--Only for Pearl's MacBook Air--
+
+Activate venv: source ../../../capstonedjango/bin/activate

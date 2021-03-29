@@ -1,4 +1,5 @@
-<!--doctype html-->
+{% load static %} 
+{% static 'images' as baseUrl %}
 <!DOCTYPE html>
 <html>
 
@@ -8,8 +9,8 @@
     <!--Adding Links  -->
     <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <link rel="stylesheet" href="../static/css/bootstrap.css">
-    <link rel="stylesheet" href="../static/css/navbar.css">
+    <link rel="stylesheet" href="{% static '../static/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static '../static/css/navbar.css' %}">
     <script src="https://kit.fontawesome.com/5a485982fd.js" crossorigin="anonymous"></script>
     <script src="../static/js/bootstrap.js"></script>
 </head>
