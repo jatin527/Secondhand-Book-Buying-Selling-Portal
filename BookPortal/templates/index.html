@@ -100,21 +100,23 @@
             <!-- Isko sundar kardo bas. -->
             <h1 style="text-align: center;">No books to display as of now</h1>
             {% else %}
-            <p>{{books}}</p>
+            {% for book in books %}
+            <p>{{book.img}}</p>
             <div class="swiper-slide">
                 <div class="slider-box">
                     <p class="time">New</p>
                     <div class="img-box">
-                        <img src="{% static 'images/images.jpeg' %}">
+                        <img src="{{book.image.url}}">
                     </div>
-                    <p class="detail">Book Name
-                        <a href="#" class="price">Price-40$</a>
+                    <p class="detail">{{book.BookName}}
+                        <a href="#" class="price">{{book.price}}</a>
                     </p>
                     <div class="cart">
                         <a href="#">Add To Cart</a>
                     </div>
                 </div>
             </div>
+            {% endfor %}
             {% endif %}
 
         </div>
