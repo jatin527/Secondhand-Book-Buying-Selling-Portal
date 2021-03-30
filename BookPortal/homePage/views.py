@@ -11,3 +11,12 @@ def home(request):
 
 def sellBooks(request):
     return render(request, 'sell_books.html')
+
+
+def error_404(request, exception):
+    return render(request, 'errorpage.html', data)
+
+
+def error_500(request):
+    data = {}
+    return render(request, 'errorpage.html', data)
