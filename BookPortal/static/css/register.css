@@ -1,8 +1,8 @@
 body {
-    background-image: url('../images/nu2.jpeg');
+    background-image: url('../images/book2.jpeg');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: auto;
     font-family: 'Ubuntu', sans-serif;
 }
 
