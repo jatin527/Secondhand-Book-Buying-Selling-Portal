@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 from django.conf import settings
 import traceback
 
@@ -15,6 +16,7 @@ class ErrorHandlerMiddleware:
     def process_exception(self, request, exception):
         if not settings.DEBUG:
             if exception:
+                print('here'+exception)
                 # Format your message here
                 message = "**{url}**\n\n{error}\n\n````{tb}````".format(
                     url=request.build_absolute_uri(),
@@ -24,4 +26,5 @@ class ErrorHandlerMiddleware:
                 # Do now whatever with this message
                 # e.g. requests.post(<slack channel/teams channel>, data=message)
 
-            return HttpResponse("Error processing the request.", status=500)
+            return render(request, 'errorpage.html', {'mes': message})
+            # return HttpResponse('Error occured')

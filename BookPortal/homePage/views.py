@@ -13,6 +13,14 @@ def sellBooks(request):
     return render(request, 'sell_books.html')
 
 
+def login(request):
+    return render(request, 'loginbook.html')
+
+
+def register(request):
+    return render(request, 'register.html')
+
+
 def error_404(request, exception):
     return render(request, 'errorpage.html', data)
 
