@@ -44,12 +44,21 @@
                     </div>
                 </div>
             </div>
+            {% if user.is_authenticated %}
+            <div class="col-2">
+                <a class="user" href="login">
+                    <i class="fas fa-user"></i>
+                    {{user.name}}
+                </a>
+            </div>
+            {% else %}
             <div class="col-2">
                 <a class="user" href="login">
                     <i class="fas fa-user"></i>
                     Login/Register
                 </a>
             </div>
+            {% endif %}
         </div>
 
         <div class="row row2">
@@ -100,23 +109,23 @@
             <!-- Isko sundar kardo bas. -->
             <h1 style="text-align: center;">No books to display as of now</h1>
             {% else %}
-            {% for book in books %}
-            <p>{{book.img}}</p>
-            <div class="swiper-slide">
-                <div class="slider-box">
-                    <p class="time">New</p>
-                    <div class="img-box">
-                        <img src="{{book.image.url}}">
-                    </div>
-                    <p class="detail">{{book.BookName}}
-                        <a href="#" class="price">{{book.price}}</a>
-                    </p>
-                    <div class="cart">
-                        <a href="#">Add To Cart</a>
+                {% for book in books %}
+                <p>{{book.img}}</p>
+                <div class="swiper-slide">
+                    <div class="slider-box">
+                        <p class="time">New</p>
+                        <div class="img-box">
+                            <img src="{{book.image.url}}">
+                        </div>
+                        <p class="detail">{{book.BookName}}
+                            <a href="#" class="price">{{book.price}}</a>
+                        </p>
+                        <div class="cart">
+                            <a href="#">Add To Cart</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            {% endfor %}
+                {% endfor %}
             {% endif %}
 
         </div>

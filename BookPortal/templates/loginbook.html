@@ -13,8 +13,8 @@
 <body>
     <img src="{% static 'images/Shelftons.png' %}" style="width:10%; height:10%; padding:20px">
     <div class="main">
-      <p class="sign" align="center">Sign in</p>
-      <p class="sign">{{msg}}</p>
+      <h1 class="sign" align="center">Sign in</h1>
+      <p class="sign" style="text-align: center;">{{msg}}</p>
       <form class="form1" action='login' method="POST">
         {% csrf_token %}
         <input class="un " id="username" type="text" align="center" placeholder="Username" required name='username'>
