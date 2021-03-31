@@ -14,13 +14,15 @@
     <img src="{% static 'images/Shelftons.png' %}" style="width:10%; height:10%; padding:20px">
     <div class="main">
       <p class="sign" align="center">Sign in</p>
-      <form class="form1">
-        <input class="un " id="username" type="text" align="center" placeholder="Username" required>
-        <input class="pass" type="password" id="password" align="center" placeholder="Password" required>
-        <a type="submit" class="submit" align="center" onclick="validate()">Sign in</a><br>
+      <p class="sign">{{msg}}</p>
+      <form class="form1" action='login' method="POST">
+        {% csrf_token %}
+        <input class="un " id="username" type="text" align="center" placeholder="Username" required name='username'>
+        <input class="pass" type="password" id="password" align="center" placeholder="Password" required name='password'>
+        <input type="submit" class="submit" align="center" onclick="validate()" value="LogIn"><br>
         <br>
         <br>
-        <a type="submit" class="submit" align="center" href="register">Sign up</a>
+        <a class="submit" align="center" href="register">Sign up</a>
 
         <p class="forgot" align="center"><a href="#">Forgot Password?</p>
 
