@@ -15,14 +15,15 @@
   <img src="{% static 'images/Shelftons.png' %}" style="width:10%; height:10%; padding:20px">
     <div class="main">
       <p class="sign" align="center">Sign up</p>
-      <form class="form1">
-        <input class="un " type="text" align="center" placeholder="Name" required>
-        <input class="un " type="email" align="center" placeholder="Email" required>
-        <input class="un " type="phone" align="center" placeholder="Contact number" required>
-        <input class="un" type="address" align="center" placeholder="City" required>
-        <input class="pass" type="password" align="center" placeholder="Password" required>
+      <form class="form1" action='register' method='POST'>
+       {% csrf_token %}
+        <input class="un " type="text" align="center" placeholder="Name" required name="Name">
+        <input class="un " type="email" align="center" placeholder="Email" required name="Email">
+        <input class="un " type="phone" align="center" placeholder="Contact number" required name="Contact">
+        <input class="un" type="address" align="center" placeholder="City" required name="City">
+        <input class="pass" type="password" align="center" placeholder="Password" required name="Password">
         <input class="pass" type="password" align="center" placeholder="Password re-enter" required>
-        <a type="submit" class="submit" align="center" onclick="validate()">Register</a>
+        <input type="submit" class="submit" align="center" onclick="validate()" placeholder="Register"/>
 
 
 
