@@ -1,0 +1,5 @@
+BookPortal/BookPortal/__pycache__/
+BookPortal/homePage/__pycache__/
+BookPortal/homePage/migrations/__pycache__/
+BookPortal/userManagement/migrations/__pycache__/
+.vscode/
