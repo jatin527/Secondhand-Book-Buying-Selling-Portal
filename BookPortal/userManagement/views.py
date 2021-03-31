@@ -43,3 +43,8 @@ def login(request):
             return render(request, 'loginbook.html', {'msg': 'Invalid Credentials' + str(e)})
     else:
         return render(request, 'loginbook.html')
+
+
+def logout(request):
+    auth.logout(request)
+    return redirect('/')

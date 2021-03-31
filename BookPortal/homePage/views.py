@@ -5,6 +5,8 @@ from .models import ViewBooks
 
 
 def home(request):
+    if request.user.is_authenticated:
+        print(request.user.email)
     books = ViewBooks.objects.all()
     return render(request, 'index.html', {'books': books})
 
