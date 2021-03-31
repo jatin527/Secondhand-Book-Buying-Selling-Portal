@@ -93,7 +93,8 @@
                 <img class="card-img-top" src="{% static 'images/books.jpg' %}" alt="Card image cap">
                 <div class="card-body">
                     <h4 class="card-title text-center main_heading">Sell Books</h4>
-                    <form action="">
+                    <form action="sellBooks" enctype="multipart/form-data" method="POST">
+                        {% csrf_token %}
                         <div class="row">
                             <div class="col-md">
                                 <label for="aname">Author Name</label>

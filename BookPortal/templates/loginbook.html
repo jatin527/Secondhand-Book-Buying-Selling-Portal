@@ -1,16 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" href='../static/css/loginbook.css'>
+    <link rel="stylesheet" href="{% static 'css/loginbook.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <script src="../static/js/loginbook.js"></script>
+    <script src="{% static 'js/loginbook.js' %}"></script>
 
 </head>
 <body>
-    <img src="../static/images/Shelftons.png" style="width:10%; height:10%; padding:20px">
+    <img src="{% static 'images/Shelftons.png' %}" style="width:10%; height:10%; padding:20px">
     <div class="main">
       <p class="sign" align="center">Sign in</p>
       <form class="form1">
@@ -19,7 +20,7 @@
         <a type="submit" class="submit" align="center" onclick="validate()">Sign in</a><br>
         <br>
         <br>
-        <a type="submit" class="submit" align="center" href="register.html">Sign up</a>
+        <a type="submit" class="submit" align="center" href="register">Sign up</a>
 
         <p class="forgot" align="center"><a href="#">Forgot Password?</p>
 
