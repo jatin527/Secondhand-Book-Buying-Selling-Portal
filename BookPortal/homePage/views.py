@@ -33,7 +33,12 @@ def sellBooks(request):
         return render(request, 'errorpage.html', {'msg':'You are not logged in'})
 
 
-
+def viewBook(request):
+    id = request.GET['id']
+    book = ViewBooks.objects.get(id=id)
+    print(id)
+    print(book.BookName)
+    return render(request, 'viewBooks.html', {'book':book})
 
 
 def login(request):
