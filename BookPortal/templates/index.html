@@ -61,13 +61,13 @@
         {% for book in books %}
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                <p>{{book.img}}</p>
+
                 <div class="swiper-slide">
                     <div class="slider-box">
                         <p class="time">New</p>
-                        <div class="img-box">
+                        <a href="viewBook?id={{book.id}}"><div class="img-box">
                             <img src="{{book.image.url}}">
-                        </div>
+                        </div></a>
                         <p class="detail">{{book.BookName}}
                             <a href="#" class="price">{{book.price}}</a>
                         </p>
@@ -78,6 +78,7 @@
                     <div class="swiper-pagination"></div>
                     </div>
                 </div></div></div>
+
                 {% endfor %}
                 {% endif %}
 
