@@ -34,6 +34,7 @@
                     <a href="#">LogOut</a>
                 </div>
             </div>
+<<<<<<< HEAD
         </ul>
     </nav>
     <main>
@@ -95,6 +96,95 @@
                 </div>
                 {% endfor %}
                 {% endif %}
+=======
+            {% if user.is_authenticated %}
+            <div class="col-2">
+                <a class="user" href="logout">
+                    <i class="fas fa-user"></i>
+                    {{user.name}}
+                </a>
+            </div>
+            {% else %}
+            <div class="col-2">
+                <a class="user" href="login">
+                    <i class="fas fa-user"></i>
+                    Login/Register
+                </a>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="row row2">
+            <nav class="navbar navbar-expand-md">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <a class="ai" href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">My Books</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">View Books</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="sellBooks">Sell Books</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">My Orders</a>
+                        </li>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!--slider 1 bags------------------------------------------>
+    <div class="heading">
+        <h1>P R O D U C T &emsp; S L I D E R &emsp; 1 </h1>
+    </div>
+    <!--swiper slider-->
+
+
+    <!--slide 1-------------------------------------->
+    {% if not books %}
+    <!-- Isko sundar kardo bas. -->
+    <div class="threeD">No books to Display</div>
+    <!-- <h1 style="text-align: center;">No books to display as of now</h1> -->
+    {% else %}
+    {% for book in books %}
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <p>{{book.img}}</p>
+            <div class="swiper-slide">
+                <div class="slider-box">
+                    <p class="time">New</p>
+                    <div class="img-box">
+                        <img src="{{book.image.url}}">
+                    </div>
+                    <p class="detail">{{book.BookName}}
+                        <a href="#" class="price">{{book.price}}</a>
+                    </p>
+                    <div class="cart">
+                        <a href="#">Add To Cart</a>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+>>>>>>> c4cf8a4065d630d0dd293a2e27c7260f59f1fa1b
 
 
 
