@@ -31,6 +31,13 @@ class Orders(models.Model):
     status= models.CharField()
     purchasedate= models.DateField( auto_now=True, auto_now_add=True)
 
+class Review(models.Model):
+
+    id_user= models.IntegerField()
+    audio= models.FileField(upload_to="audio")
+
+
+
     
 
 
