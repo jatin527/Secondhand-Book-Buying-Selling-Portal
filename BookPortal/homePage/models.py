@@ -18,3 +18,19 @@ class ViewBooks(models.Model):
     new = models.BooleanField()
     userid = models.CharField(max_length=50)
     purchasedate= models.DateField( auto_now=False, auto_now_add=False)
+
+class Cart(models.Model):
+
+    id_book = models.IntegerField()
+    id_user= models.IntegerField()
+
+class Orders(models.Model):
+
+    id_book = models.IntegerField()
+    id_user= models.IntegerField()
+    status= models.CharField()
+    purchasedate= models.DateField( auto_now=True, auto_now_add=True)
+
+    
+
+
