@@ -41,6 +41,11 @@ def viewBook(request):
     return render(request, 'bookinfo.html', {'book': book})
 
 
+def myBooks(request):
+    books = ViewBooks.objects.filter(userid=request.user.email)
+    return render(request, 'mybooks.html', {'books': books})
+
+
 def login(request):
     return render(request, 'loginbook.html')
 
