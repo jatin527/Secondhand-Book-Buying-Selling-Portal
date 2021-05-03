@@ -99,7 +99,7 @@
                                 class="fas fa-home"></i> Home</a></li>
                     <li class="nav-item"
                         style="color: #ffffff;font-family: Montserrat, sans-serif;font-weight: bold;font-style: normal;font-size: 18px;">
-                        <a class="nav-link" href="#"
+                        <a class="nav-link" href="/viewCart"
                             style="color: #ffffff;font-family: Montserrat, sans-serif;font-weight: bold;font-style: normal;font-size: 18px;"><i
                                 class="fas fa-shopping-cart"></i> My Cart</a></li>
                     {% if user.is_authenticated %}
@@ -136,29 +136,36 @@
             </div>
         </div>
     </div>
-<div class="row" style='margin-left: 105px'>
-<div class="dropdown" >
-  <button onclick="myFunction()" class="dropbtn">Filter by genre </button>
-  <div id="myDropdown" class="dropdown-content">
-    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-    <a href="#">Comics</a>
-    <a href="#">Novels</a>
-    <a href="#">NCERT</a>
+<div class="row" style="text-align: center;">
+  <div class="col-6">
+    <div class="dropdown" >
+      <button onclick="myFunction()" class="dropbtn">Filter by genre </button>
+      <div id="myDropdown" class="dropdown-content">
+        <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+        <a href="/filtercat/comic">Comics</a>
+        <a href="/filtercat/novel">Novels</a>
+        <a href="/filtercat/ncert">NCERT</a>
+        <a href='/'>All</a>
+      </div>
+    </div>
   </div>
-</div>
+  <div class="col-6">
+    <div class="dropdown" >
+      <button onclick="myFunction()" class="dropbtn">Filter by type </button>
+      <div id="myDropdown" class="dropdown-content">
+        <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+        <a href="#">New</a>
+        <a href="#">Old</a>
+      </div>
+  </div>
 
-<div class="dropdown" >
-  <button onclick="myFunction()" class="dropbtn">Filter by type </button>
-  <div id="myDropdown" class="dropdown-content">
-    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-    <a href="#">New</a>
-    <a href="#">Old</a>
   </div>
-</div>
+
+
+
+
 </div>
 <script>
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
@@ -194,7 +201,7 @@ function filterFunction() {
                             {% endif %}
                             <img class="card-img-bottom" src="{{book.image.url}}" style="height: 320px; width: 230px;">
                             <p style="font-family: Montserrat, sans-serif;font-size: 23px;padding-top: 20px;margin-bottom: 0px;">{{book.BookName}}</p>
-                            <p style="font-family: Montserrat, sans-serif;">{{book.price}}</p>
+                            <p style="font-family: Montserrat, sans-serif;">Rs. {{book.price}}</p>
                             {% if book.id in cart %}
                             <a href="removecart/{{book.id}}"><button class="btn btn-danger" type="button" style="margin-bottom: 12px;">Remove from Cart</button></a>
                             {% else %}
