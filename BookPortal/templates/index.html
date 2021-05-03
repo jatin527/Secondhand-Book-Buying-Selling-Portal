@@ -17,89 +17,6 @@
 </head>
 
 <body>
-    <!-- {{msg}}
-    <nav>
-        <ul>
-            <li class="logo">Logo</li>
-            <li class="btn"><span class="fas fa-bars"></span></li>
-            <div class="items">
-                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="viewCart"><i class="fas fa-shopping-cart"></i> My Cart</a></li>
-            </div>
-            {% if user.is_authenticated %}
-            <li class="nav-item"><a class="nav-link active"
-                    style="color: #ffffff;font-family: Montserrat, sans-serif;font-weight: bold;font-style: normal;font-size: 18px;"
-                    href=sellBooks><i class="fas fa-book"></i> Sell Books</a></li>
-            <div class="dropdown">
-                <p class="user-login" style="margin: 10px;"><i class="fas fa-user"></i> {{user.name}}</a>
-                <div class="dropdown-content">
-                    <a href="/myBooks">My Books</a>
-                    <a href="/myOrders">My Orders</a>
-                    <a href="logout">Log Out</a>
-                </div>
-            </div>
-            {% else %}
-            <div class="dropdown">
-                <a class="user-login" href="login"><i class="fas fa-user"></i> Login or Register</a>
-            </div>
-            {% endif %}
-        </ul>
-    </nav>
-    <main> -->
-    <!--slider 1 bags------------------------------------------>
-    <!-- <div class="heading">
-            <h1>P R O D U C T &emsp; S L I D E R &emsp; 1 </h1>
-        </div>
-        {% if not books %}
-        <div class="threeD">No books to Display</div>
-        {% else %}
-        {% for book in books %}
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-
-                <div class="swiper-slide">
-                    <div class="slider-box">
-                        {% if book.new == True %}
-                        <p class="time">New</p>
-                        {% endif %}
-                        <a href="viewBook?id={{book.id}}">
-                            <div class="img-box">
-                                <img src="{{book.image.url}}">
-                            </div>
-                        </a>
-                        <p class="detail">{{book.BookName}}
-                            <a href="#" class="price">{{book.price}}</a>
-                        </p>
-                        {% if book.id in cart %}
-                        <div class="cart">
-<<<<<<< HEAD
-                            <a href="/removecart/{{book.id}}">Remove from Cart</a>
-                            
-                    </div>
-                    {% else %}
-                    <div class="cart">
-                        <a href="addtoCart/{{book.id}}">Add To Cart</a>  
-                </div>
-=======
-                            <a href="addtoCart/{{book.id}}">Remove from Cart</a>
-
-                        </div>
-                        {% else %}
-                        <div class="cart">
-                            <a href="addtoCart/{{book.id}}">Add To Cart</a>
-                        </div>
->>>>>>> f83b11a78b7d7f8d8ebcbc481d24505b3f8227b8
-                        {% endif %}
-
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        {% endfor %}
-        {% endif %} -->
-
     <main>
         <div class="heading">
             <h1>P R O D U C T &emsp; S L I D E R &emsp; 1 </h1>
@@ -115,7 +32,7 @@
 
                 <div class="col-3">
                     <div class="product_list">
-                        <div class="product_img">
+                        <div class="product_img" style="padding: 5px;">
                             <img class="img-responsive" src="../media/bad-blood.jpg" alt="">
                         </div>
                         <div class="product_detail_btm">
@@ -127,16 +44,7 @@
                                 <p><span class="new_price">{{book.price}} Rs</span>
                                 </p>
                             </div>
-                            {% if book.id in cart %}
-                            <div class="cart">
-                                <a href="addtoCart/{{book.id}}">Remove from Cart</a>
 
-                            </div>
-                            {% else %}
-                            <div class="cart">
-                                <a href="addtoCart/{{book.id}}">Add To Cart</a>
-                            </div>
-                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -146,7 +54,6 @@
 
             </div>
         </div>
-
 
         <!--swiper  slider end-->
     </main>
