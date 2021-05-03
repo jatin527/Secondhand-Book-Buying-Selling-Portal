@@ -17,23 +17,22 @@
 </head>
 
 <body>
+    {{msg}}
     <nav>
         <ul>
             <li class="logo">Logo</li>
             <li class="btn"><span class="fas fa-bars"></span></li>
             <div class="items">
                 <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                {% if user.is_authenticated %}
-                <li><a href=sellBooks><i class="fas fa-book"></i> Sell Books</a></li>
-                {% endif %}
-                <li><a href="#"><i class="fas fa-shopping-cart"></i> My Cart</a></li>
+                <li><a href="viewCart"><i class="fas fa-shopping-cart"></i> My Cart</a></li>
             </div>
             {% if user.is_authenticated %}
+            <li class="nav-item"><a class="nav-link active" style="color: #ffffff;font-family: Montserrat, sans-serif;font-weight: bold;font-style: normal;font-size: 18px;" href=sellBooks><i class="fas fa-book"></i> Sell Books</a></li>
             <div class="dropdown">
                 <p class="user-login" style="margin: 10px;"><i class="fas fa-user"></i> {{user.name}}</a>
                 <div class="dropdown-content">
                     <a href="/myBooks">My Books</a>
-                    <a href="#">My Orders</a>
+                    <a href="/myOrders">My Orders</a>
                     <a href="logout">Log Out</a>
                 </div>
             </div>
@@ -64,17 +63,26 @@
 
                 <div class="swiper-slide">
                     <div class="slider-box">
+                        {% if book.new == True %}
                         <p class="time">New</p>
+                        {% endif %}
                         <a href="viewBook?id={{book.id}}"><div class="img-box">
                             <img src="{{book.image.url}}">
                         </div></a>
                         <p class="detail">{{book.BookName}}
                             <a href="#" class="price">{{book.price}}</a>
                         </p>
+                        {% if book.id in cart %}
                         <div class="cart">
-                            <a href="#">Add To Cart</a>
+                            <a href="addtoCart/{{book.id}}">Remove from Cart</a>
                             
                     </div>
+                    {% else %}
+                    <div class="cart">
+                        <a href="addtoCart/{{book.id}}">Add To Cart</a>  
+                </div>
+                        {% endif %}
+
                     <div class="swiper-pagination"></div>
                     </div>
                 </div></div></div>

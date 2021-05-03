@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import ViewBooks
+from .models import ViewBooks, Cart
 
 # Create your views here.
 
@@ -8,7 +8,14 @@ def home(request):
     if request.user.is_authenticated:
         print(request.user.id)
     books = ViewBooks.objects.all()
-    return render(request, 'index.html', {'books': books})
+    try:
+        cart = Cart.objects.filter(id_user=request.user.id)
+        citems = []
+        for i in cart:
+            citems.append(i.id_book)
+    except:
+        cart = ''
+    return render(request, 'index.html', {'books': books, 'cart': citems})
 
 
 def sellBooks(request):
@@ -44,6 +51,27 @@ def viewBook(request):
 def myBooks(request):
     books = ViewBooks.objects.filter(userid=request.user.email)
     return render(request, 'mybooks.html', {'books': books})
+
+
+def addcart(request, index):
+    cartitems = Cart.objects.filter(id_user=request.user.id)
+    cartbooks = []
+    for i in cartitems:
+        print(i.id_book)
+        cartbooks.append(i.id_book)
+    if index in cartbooks:
+        return redirect('/')
+    else:
+        Cart.objects.create(id_book=index, id_user=request.user.id)
+        return redirect('/')
+
+
+def myorders(request):
+    return render(request, 'myorders.html')
+
+
+def cart(request):
+    return render(request, 'cart.html')
 
 
 def login(request):
