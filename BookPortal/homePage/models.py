@@ -19,6 +19,9 @@ class ViewBooks(models.Model):
     userid = models.CharField(max_length=50)
     purchasedate = models.DateField(auto_now=False, auto_now_add=False)
     audio = models.FileField(null=True, upload_to="audio")
+    upload_date= models.DateField(auto_now=True)
+    status= models.Charfield(max_length=50)
+    
 
 
 class Cart(models.Model):
