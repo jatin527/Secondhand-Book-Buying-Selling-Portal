@@ -1,30 +1,120 @@
 body {
-    margin: 0;
-    padding: 0;
-    height: 100vw;
-    background: #65e385;
-  }
-  
-  .threeD {
-    color: rgb(65, 61, 61);
-    white-space: nowrap;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 3em;
-    font-family: sans-serif;
-    letter-spacing: 0.1em;
-    transition: 0.3s;
-    text-shadow: 1px 1px 0 red, 1px 2px 0 grey, 1px 3px 0 grey, 1px 4px 0 grey,
-      1px 5px 0 grey, 1px 6px 0 grey, 1px 7px 0 grey, 1px 8px 0 grey,
-      5px 13px 15px black;
-  }
-  
-  .threeD:hover {
-    transition: 0.3s;
-    transform: scale(1.1)translate(-50%, -50%);
-    text-shadow: 1px -1px 0 grey, 1px -2px 0 grey, 1px -3px 0 grey,
-      1px -4px 0 grey, 1px -5px 0 grey, 1px -6px 0 grey, 1px -7px 0 grey,
-      1px -8px 0 grey, 5px -13px 15px black, 5px -13px 25px #808080;
-  }
+  margin: 0;
+  padding: 0;
+  height: 100vw;
+}
+
+.threeD {
+  color: rgb(65, 61, 61);
+  white-space: nowrap;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3em;
+  font-family: sans-serif;
+  letter-spacing: 0.1em;
+  transition: 0.3s;
+  text-shadow: 1px 1px 0 red, 1px 2px 0 grey, 1px 3px 0 grey, 1px 4px 0 grey,
+    1px 5px 0 grey, 1px 6px 0 grey, 1px 7px 0 grey, 1px 8px 0 grey,
+    5px 13px 15px black;
+}
+
+.threeD:hover {
+  transition: 0.3s;
+  transform: scale(1.1) translate(-50%, -50%);
+  text-shadow: 1px -1px 0 red, 1px -2px 0 grey, 1px -3px 0 grey,
+    1px -4px 0 grey, 1px -5px 0 grey, 1px -6px 0 grey, 1px -7px 0 grey,
+    1px -8px 0 grey, 5px -13px 15px black, 5px -13px 25px #808080;
+}
+
+.product_list {
+  height: 200px;
+  transition: ease all 0.5s;
+}
+.bname{
+  text-decoration: none;
+}
+
+.product_list:hover,
+.product_list:focus {
+  box-shadow: 0 0 25px -17px #000;
+  border-bottom: solid #17a5e9 5px;
+}
+
+.product_img {
+  overflow: hidden;
+  background: #f3f3f3;
+}
+
+.product_img img {
+  padding: 22px;
+}
+
+img{
+  height: 400px;
+  padding: auto;
+}
+
+.product_detail_btm h4 {
+  margin: 20px 0 10px 0;
+  text-align: center;
+}
+
+.product_list .starratin {
+  height: 0;
+  overflow: hidden;
+  transition: ease all 0.5s;
+}
+
+.product_list:hover .starratin,
+.product_list:focus .starratin {
+  height: 15px;
+  margin-bottom: 6px;
+}
+
+.product_list:hover div.product_img img,
+.product_list:focus div.product_img img {
+  transform: scale(1.2);
+  transition: ease all 0.5s;
+}
+
+.product_price p {
+  margin: 0;
+  text-align: center;
+}
+
+
+.new_price {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+}
+
+.recent_item {
+  color: #000;
+  font-weight: 600;
+  margin: 0;
+}
+
+.price_recent_item {
+  margin: 0;
+  color: #000;
+}
+
+.adress_cont {
+  float: left;
+  width: 100%;
+}
+
+.contact_us_2 .adress_cont {
+  float: left;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.logo,
+.nav-link {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}

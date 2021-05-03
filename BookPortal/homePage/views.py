@@ -31,8 +31,10 @@ def sellBooks(request):
             img = request.FILES['img']
             bdis = request.POST['bdis']
             bdistdet = request.POST['bdisdet']
+            audio = request.FILES['audio']
             book = ViewBooks(BookName=bookname, language=blang, author=authorName, description=bdistdet, category=category,
-                             condition=bdis, price=price, image=img, new=True, userid=request.user.email, purchasedate=date, publisher='testing123')
+                             condition=bdis, price=price, image=img, new=True, userid=request.user.email, purchasedate=date, publisher='testing123', audio=audio)
+            
             book.save()
             return redirect('/')
         else:
