@@ -14,7 +14,8 @@ def home(request):
         for i in cart:
             citems.append(i.id_book)
     except:
-        cart = ''
+        citems = ''
+
     return render(request, 'index.html', {'books': books, 'cart': citems})
 
 
@@ -45,7 +46,14 @@ def viewBook(request):
     book = ViewBooks.objects.get(id=id)
     print(id)
     print(book.BookName)
-    return render(request, 'bookinfo.html', {'book': book})
+    try:
+        cart = Cart.objects.filter(id_user=request.user.id)
+        citems = []
+        for i in cart:
+            citems.append(i.id_book)
+    except:
+        cart = ''
+    return render(request, 'bookinfo.html', {'book': book, 'cart': citems})
 
 
 def myBooks(request):
@@ -66,12 +74,40 @@ def addcart(request, index):
         return redirect('/')
 
 
+def removecart(request, index):
+    c = Cart.objects.get(id_user=request.user.id, id_book=index)
+    c.delete()
+
+    return redirect('/')
+
+
+def payment(request):
+    return render(request, 'payment.html', {'cart': 'cart'})
+
+
 def myorders(request):
     return render(request, 'myorders.html')
 
 
 def cart(request):
-    return render(request, 'cart.html')
+    cart = Cart.objects.filter(id_user=request.user.id)
+    book = []
+    if cart.empty:
+        cart = ''
+    else:
+        for i in cart:
+            book.append(i.id_book)
+        books = []
+        for i in book:
+            book = ViewBooks.objects.get(id=i)
+            books.append(book)
+
+    if cart == '':
+        sendbooks = 'empty'
+    else:
+        sendbooks = books
+
+    return render(request, 'cart.html', {'books': sendbooks})
 
 
 def login(request):

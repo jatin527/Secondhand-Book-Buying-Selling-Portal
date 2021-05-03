@@ -70,7 +70,7 @@ li.subtotal {
 
 .price:before,
 .subtotal:before {
-  content: "Rs.";
+  content: "Rs";
 }
 
 main {
