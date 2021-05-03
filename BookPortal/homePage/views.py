@@ -94,7 +94,7 @@ def myorders(request):
 def cart(request):
     cart = Cart.objects.filter(id_user=request.user.id)
     book = []
-    if cart.empty:
+    if cart.__len__ == 0:
         cart = ''
     else:
         for i in cart:
@@ -109,7 +109,11 @@ def cart(request):
     else:
         sendbooks = books
 
-    return render(request, 'cart.html', {'books': sendbooks})
+    gtotal = 0
+    for book in books:
+        gtotal += int(book.price)
+
+    return render(request, 'cart.html', {'books': sendbooks, 'total': gtotal})
 
 
 def login(request):
