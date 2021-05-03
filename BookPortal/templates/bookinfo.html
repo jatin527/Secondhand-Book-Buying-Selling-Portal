@@ -71,10 +71,18 @@
             </div>
             {% endif %}
                 <div class="lower" style="padding-top: 25px;">
-                    <h2 style="font-family: Montserrat, sans-serif;font-weight: bold;">Description</h2>
-                    <p style="font-family: Montserrat, sans-serif">{{book.description}}</p>
-                    <h2 style="font-family: Montserrat, sans-serif;font-weight: bold;">Audio Review</h2>
-                    <p style="font-family: Montserrat, sans-serif">Not available for this book</p>
+                    <h2 style="margin: 13px;font-family: Montserrat, sans-serif;font-weight: bold;">Description</h2>
+                    <p style="margin: 16px;font-family: Montserrat, sans-serif">{{book.description}}</p>
+                    <h2 style="margin: 13px;font-family: Montserrat, sans-serif;font-weight: bold;">Audio Review</h2>
+                    <p style="margin: 16px;font-family: Montserrat, sans-serif">
+                    
+                        </p>
+                    <audio controls>
+                  {% comment %} <source src=media/{{book.audio}} type="audio/caf" > {% endcomment %}
+                  <source src=media/{{book.audio}} type="audio/mpeg" >
+                  {% comment %} <source src="myAudio.ogg" type="audio/ogg"> {% endcomment %}
+                  
+                </audio>
                 </div>
                
 
@@ -82,20 +90,7 @@
             </div>
         </div>
     </div>
-    <h2 style="margin: 13px;font-family: Montserrat, sans-serif;font-weight: bold;">Description</h2>
-    <p style="margin: 16px;font-family: Montserrat, sans-serif">{{book.description}}</p>
-    <h2 style="margin: 13px;font-family: Montserrat, sans-serif;font-weight: bold;">Audio Review</h2>
-    <p style="margin: 16px;font-family: Montserrat, sans-serif">
-    
-    
-    {{book.audio}}
-    </p>
-    <audio controls>
-  {% comment %} <source src=media/{{book.audio}} type="audio/caf" > {% endcomment %}
-  <source src=media/{{book.audio}} type="audio/mpeg" >
-  {% comment %} <source src="myAudio.ogg" type="audio/ogg"> {% endcomment %}
-  
-</audio>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
 </body>

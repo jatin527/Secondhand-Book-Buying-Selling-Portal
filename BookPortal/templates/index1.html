@@ -59,23 +59,26 @@
     <div class="container" style="padding: 43px;">
         <div class="row" style="text-align: center;">
             {% for book in books %}
-            <div class="col-md-3" style="text-align: center;">
-                <a href="viewBook?id={{book.id}}" class="nav-item" style="color: black ;text-decoration: none;"><div class="card" style="padding-left: 5px; padding-right: 5px; margin-bottom: 20px;">
-                    {% if book.new == True %}
-                    <img src="{% static 'images/ZUiY.gif' %}" height="50px" width="50px">New
-                    {% else %}
-                    <div class="con" style="height: 50px;"></div>
-                    {% endif %}
-                    <img class="card-img-bottom" src="{{book.image.url}}" style="height: 400px;">
-                    <p style="font-family: Montserrat, sans-serif;font-size: 23px;padding-top: 20px;margin-bottom: 0px;">{{book.BookName}}</p>
-                    <p style="font-family: Montserrat, sans-serif;">{{book.price}}</p>
-                    {% if book.id in cart %}
-                    <a href="removecart/{{book.id}}"><button class="btn btn-danger" type="button" style="margin-bottom: 12px;">Remove from Cart</button></a>
-                    {% else %}
-                    <a href="addtoCart/{{book.id}}"><button class="btn btn-primary" type="button" style="margin-bottom: 12px;">Add to Cart</button></a>
-                    {% endif %}
-                </div>
-            </div></a>
+            <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="col-md-3" style="text-align: center;">
+                    <a href="viewBook?id={{book.id}}" class="nav-item" style="color: black ;text-decoration: none;"><div class="card" style="padding-left: 5px; padding-right: 5px; margin-bottom: 20px;">
+                        {% if book.new == True %}
+                        <img src="{% static 'images/ZUiY.gif' %}" height="50px" width="50px">New
+                        {% else %}
+                        <div class="con" style="height: 50px;"></div>
+                        {% endif %}
+                        <img class="card-img-bottom" src="{{book.image.url}}" style="height: 400px;">
+                        <p style="font-family: Montserrat, sans-serif;font-size: 23px;padding-top: 20px;margin-bottom: 0px;">{{book.BookName}}</p>
+                        <p style="font-family: Montserrat, sans-serif;">{{book.price}}</p>
+                        {% if book.id in cart %}
+                        <a href="removecart/{{book.id}}"><button class="btn btn-danger" type="button" style="margin-bottom: 12px;">Remove from Cart</button></a>
+                        {% else %}
+                        <a href="addtoCart/{{book.id}}"><button class="btn btn-primary" type="button" style="margin-bottom: 12px;">Add to Cart</button></a>
+                        {% endif %}
+                    </div>
+                </div></a>
+            </div>
+
             {% endfor %}
         </div>
     </div>
