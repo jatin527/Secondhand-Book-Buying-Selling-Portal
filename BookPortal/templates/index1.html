@@ -128,14 +128,14 @@
         </div>
     </nav>
     
-    <div class="container">
+<div class="container">
         <div class="row">
             <div class="col-md-12" style="padding: 42px;">
                 <h1 class="display-3 text-uppercase"
                     style="padding-right: 10px;padding-bottom: 10px;text-align: center;">all books</h1>
             </div>
         </div>
-    </div>
+</div>
 <div class="row" style="text-align: center;">
   <div class="col-6">
     <div class="dropdown" >
@@ -157,6 +157,7 @@
         <a href="#">New</a>
         <a href="#">Old</a>
       </div>
+  </div>
   </div>
 <script>
 /* When the user clicks on the button,
@@ -181,35 +182,34 @@ function filterFunction() {
   }
 }
 </script>
-
 <div class="container" style="padding: 43px;">
-        <div class="row" style="text-align: center;">
-            {% for book in books %}
-            <div class="col-md-6" style="text-align: center;">
-                <div class="shadow-lg bg-white p-4 mb-4 rounded">
-                    <div class="box" >
-                        <a href="viewBook?id={{book.id}}" class="nav-item" style="color: black ;text-decoration: none;">
-                            {% if book.new == True %}
-                            <img src="{% static 'images/ZUiY.gif' %}" height="30px" width="30px">New
-                            {% else %}
-                            <div class="con" style="height: 30px;"></div>
-                            {% endif %}
-                            <img class="card-img-bottom" src="{{book.image.url}}" style="height: 320px; width: 230px;">
-                            <p style="font-family: Montserrat, sans-serif;font-size: 23px;padding-top: 20px;margin-bottom: 0px;">{{book.BookName}}</p>
-                            <p style="font-family: Montserrat, sans-serif;">{{book.price}}</p>
-                            {% if book.id in cart %}
-                            <a href="removecart/{{book.id}}"><button class="btn btn-danger" type="button" style="margin-bottom: 12px;">Remove from Cart</button></a>
-                            {% else %}
-                            <a href="addtoCart/{{book.id}}"><button class="btn btn-primary" type="button" style="margin-bottom: 12px;">Add to Cart</button></a>
-                            {% endif %}
-                    </div>
-                        
-                </div>
-
-            </div></a>
-            {% endfor %}
-        </div>
+  <div class="row">
+    {% for book in books %}
+    
+    <div class="col-md-3">
+      <div class="shadow-lg bg-white p-4 mb-4 rounded">
+      <div class="box" >
+        <a href="viewBook?id={{book.id}}" class="nav-item" style="color: black ;text-decoration: none;">
+            {% if book.new == True %}
+            <img src="{% static 'images/ZUiY.gif' %}" height="30px" width="30px">New
+            {% else %}
+            <div class="con" style="height: 30px;"></div>
+            {% endif %}
+            <img class="card-img-bottom" src="{{book.image.url}}" style="height: 300px; width: 230px;">
+            <p style="font-family: Montserrat, sans-serif;font-size: 18px;padding-top: 20px;margin-bottom: 0px;">{{book.BookName}}</p>
+            <p style="font-family: Montserrat, sans-serif;">{{book.price}}</p>
+            {% if book.id in cart %}
+            <a href="removecart/{{book.id}}"><button class="btn btn-danger" type="button" style="margin-bottom: 12px;">Remove from Cart</button></a>
+            {% else %}
+            <a href="addtoCart/{{book.id}}"><button class="btn btn-primary" type="button" style="margin-bottom: 12px;">Add to Cart</button></a>
+            {% endif %}
     </div>
+    
+    </div>
+  </div>
+    {% endfor %}
+  </div>
+</div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
 </body>
