@@ -75,6 +75,24 @@
         <div class="container">
             <div class="card">
                 <div class="card-body">
+                    <h5 class="card-title text-center main_heading">Address</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Name : Shreyans Jain</li>
+                    <li class="list-group-item">Email ID : Shreyans.Jain18@st.niituniversity.in</li>
+                    <li class="list-group-item">Phone Number : 9215840600</li>
+                    <li class="list-group-item">Address : Gopala Greens Apartment</li>
+                    <li class="list-group-item">City : Kanpur</li>
+                    <li class="list-group-item">State : UP</li>
+                    <li class="list-group-item">
+                        <input type="checkbox" id="as" name="as" value="t">
+                        <label for="as"> Same as Billing Address</label><br>
+                    </li>
+                </ul>
+            </div>
+            <br><br>
+            <div class="card">
+                <div class="card-body">
                     <h4 class="card-title text-center main_heading">Billing Address</h4>
                     <form action="" enctype="multipart/form-data" method="POST">
                         {% csrf_token %}
