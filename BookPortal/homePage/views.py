@@ -121,19 +121,6 @@ def cart(request):
     return render(request, 'cart.html', {'books': sendbooks, 'total': gtotal})
 
 
-def filtercat(request, cat):
-    books = ViewBooks.objects.filter(category=cat)
-    try:
-        cart = Cart.objects.filter(id_user=request.user.id)
-        citems = []
-        for i in cart:
-            citems.append(i.id_book)
-    except:
-        citems = ''
-
-    return render(request, 'index1.html', {'books': books, 'cart': citems})
-
-
 def login(request):
     return render(request, 'loginbook.html')
 
