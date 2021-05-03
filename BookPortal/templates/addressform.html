@@ -1,0 +1,137 @@
+{% load static %}
+{% static 'images' as baseUrl %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Books</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sell_books.css' %}">
+    <link rel="stylesheet" href="../static/css/sell_books.css">
+    <link rel="stylesheet" href="../static/css/navbar.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/5a485982fd.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="background: rgb(34,34,34);">
+        <div class="container"><a class="navbar-brand" href="#"
+                style="color: #ffffff;font-family: Montserrat, sans-serif;font-weight: bold;font-style: normal;font-size: 18px;">SecondHand
+                Books</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"
+                style="color: #ffffff;font-family: Montserrat, sans-serif;font-weight: bold;font-style: normal;font-size: 18px;"><span
+                    class="sr-only"
+                    style="color: #ffffff;font-family: Montserrat, sans-serif;font-weight: bold;font-style: normal;font-size: 18px;">Toggle
+                    navigation</span><span class="navbar-toggler-icon"
+                    style="color: #ffffff;font-family: Montserrat, sans-serif;font-weight: bold;font-style: normal;font-size: 18px;"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1"
+                style="color: #ffffff;font-family: Montserrat, sans-serif;font-weight: bold;font-style: normal;font-size: 18px;">
+                <ul class="navbar-nav ml-auto"
+                    style="color: #ffffff;font-family: Montserrat, sans-serif;font-weight: bold;font-style: normal;font-size: 18px;">
+                    <li class="nav-item"
+                        style="color: #ffffff;font-family: Montserrat, sans-serif;font-weight: bold;font-style: normal;font-size: 18px;">
+                        <a class="nav-link active" href="/"
+                            style="color: #ffffff;font-family: Montserrat, sans-serif;font-weight: bold;font-style: normal;font-size: 18px;"><i
+                                class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item"
+                        style="color: #ffffff;font-family: Montserrat, sans-serif;font-weight: bold;font-style: normal;font-size: 18px;">
+                        <a class="nav-link" href="#"
+                            style="color: #ffffff;font-family: Montserrat, sans-serif;font-weight: bold;font-style: normal;font-size: 18px;"><i
+                                class="fas fa-shopping-cart"></i> My Cart</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link active"
+                            style="color: #ffffff;font-family: Montserrat, sans-serif;font-weight: bold;font-style: normal;font-size: 18px;"
+                            href=sellBooks><i class="fas fa-book"></i> Sell Books</a></li>
+
+                    <div class="dropdown">
+                        <p class="user-login" style="margin: 10px;"><i class="fas fa-user"></i> {{user.name}}</a>
+                        <div class="dropdown-content">
+                            <a href="/myBooks">My Books</a>
+                            <a href="/myOrders">My Orders</a>
+                            <a href="logout">Log Out</a>
+                        </div>
+                    </div>
+                    {% else %}
+                    <li class="nav-item"
+                        style="color: #ffffff;font-family: Montserrat, sans-serif;font-weight: bold;font-style: normal;font-size: 18px;">
+                        <a class="nav-link" href="/login"
+                            style="color: #ffffff;font-family: Montserrat, sans-serif;font-weight: bold;font-style: normal;font-size: 18px;">Login
+                            or Register</a>
+                    </li>
+
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title text-center main_heading">Billing Address</h4>
+                    <form action="" enctype="multipart/form-data" method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md">
+                                <label for="fn">First Name</label>
+                                <input required type="text" id="fn" name="fn" placeholder="Enter First Name">
+                            </div>
+                            <div class="col-md">
+                                <label for="ln">Last Name</label>
+                                <input type="text" id="ln" name="ln" placeholder="Enter Last Name">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md">
+                                <label for="em">Email Address</label>
+                                <input required type="email" id="em" name="em" placeholder="Enter E-mail Address">
+                            </div>
+                            <div class="col-md">
+                                <label for="pn">Phone Number</label>
+                                <input required type="text" id="pn" name="pn" placeholder="Enter Phone Number">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label for="addr">Address</label>
+                                <textarea required id="addr" name="addr" placeholder="Enter Address"></textarea>
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-md">
+                                <label for="city">City</label>
+                                <input required type="text" id="city" name="city" placeholder="Enter City">
+                            </div>
+                            <div class="col-md">
+                                <label for="state">State</label>
+                                <input required type="text" id="state" name="state" placeholder="Enter State">
+                            </div>
+                            <div class="col-md">
+                                <label for="zc">ZIP Code</label>
+                                <input required type="text" id="zc" name="zc" placeholder="Enter ZIP Code">
+                            </div>
+                        </div>
+                        <br>
+
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        $('nav ul li.btn span').click(function () {
+            $('nav ul div.items').toggleClass("show");
+            $('nav ul li.btn span').toggleClass("show");
+        });
+    </script>
+</body>
+
+</html>
