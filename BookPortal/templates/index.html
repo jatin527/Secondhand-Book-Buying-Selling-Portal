@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    {{msg}}
+    <!-- {{msg}}
     <nav>
         <ul>
             <li class="logo">Logo</li>
@@ -27,7 +27,9 @@
                 <li><a href="viewCart"><i class="fas fa-shopping-cart"></i> My Cart</a></li>
             </div>
             {% if user.is_authenticated %}
-            <li class="nav-item"><a class="nav-link active" style="color: #ffffff;font-family: Montserrat, sans-serif;font-weight: bold;font-style: normal;font-size: 18px;" href=sellBooks><i class="fas fa-book"></i> Sell Books</a></li>
+            <li class="nav-item"><a class="nav-link active"
+                    style="color: #ffffff;font-family: Montserrat, sans-serif;font-weight: bold;font-style: normal;font-size: 18px;"
+                    href=sellBooks><i class="fas fa-book"></i> Sell Books</a></li>
             <div class="dropdown">
                 <p class="user-login" style="margin: 10px;"><i class="fas fa-user"></i> {{user.name}}</a>
                 <div class="dropdown-content">
@@ -43,19 +45,13 @@
             {% endif %}
         </ul>
     </nav>
-    <main>
-        <!--slider 1 bags------------------------------------------>
-        <div class="heading">
+    <main> -->
+    <!--slider 1 bags------------------------------------------>
+    <!-- <div class="heading">
             <h1>P R O D U C T &emsp; S L I D E R &emsp; 1 </h1>
         </div>
-        <!--swiper slider-->
-
-
-        <!--slide 1-------------------------------------->
         {% if not books %}
-        <!-- Isko sundar kardo bas. -->
         <div class="threeD">No books to Display</div>
-        <!-- <h1 style="text-align: center;">No books to display as of now</h1> -->
         {% else %}
         {% for book in books %}
         <div class="swiper-container">
@@ -66,33 +62,83 @@
                         {% if book.new == True %}
                         <p class="time">New</p>
                         {% endif %}
-                        <a href="viewBook?id={{book.id}}"><div class="img-box">
-                            <img src="{{book.image.url}}">
-                        </div></a>
+                        <a href="viewBook?id={{book.id}}">
+                            <div class="img-box">
+                                <img src="{{book.image.url}}">
+                            </div>
+                        </a>
                         <p class="detail">{{book.BookName}}
                             <a href="#" class="price">{{book.price}}</a>
                         </p>
                         {% if book.id in cart %}
                         <div class="cart">
                             <a href="addtoCart/{{book.id}}">Remove from Cart</a>
-                            
-                    </div>
-                    {% else %}
-                    <div class="cart">
-                        <a href="addtoCart/{{book.id}}">Add To Cart</a>  
-                </div>
+
+                        </div>
+                        {% else %}
+                        <div class="cart">
+                            <a href="addtoCart/{{book.id}}">Add To Cart</a>
+                        </div>
                         {% endif %}
 
-                    <div class="swiper-pagination"></div>
+                        <div class="swiper-pagination"></div>
                     </div>
-                </div></div></div>
+                </div>
+            </div>
+        </div>
 
         {% endfor %}
-        {% endif %}
+        {% endif %} -->
+
+    <main>
+        <div class="heading">
+            <h1>P R O D U C T &emsp; S L I D E R &emsp; 1 </h1>
+        </div>
+        <br><br><br>
+        <div class="container section">
+            <div class="row">
+                {% if not books %}
+                <div class="threeD">No books to Display</div>
+                {% else %}
+
+                {% for book in books %}
+
+                <div class="col-3">
+                    <div class="product_list">
+                        <div class="product_img">
+                            <img class="img-responsive" src="../media/bad-blood.jpg" alt="">
+                        </div>
+                        <div class="product_detail_btm">
+                            <div class="center">
+                                <h4><a class="bname" href="#">{{book.BookName}}</a></h4>
+                            </div>
+
+                            <div class="product_price">
+                                <p><span class="new_price">{{book.price}} Rs</span>
+                                </p>
+                            </div>
+                            {% if book.id in cart %}
+                            <div class="cart">
+                                <a href="addtoCart/{{book.id}}">Remove from Cart</a>
+
+                            </div>
+                            {% else %}
+                            <div class="cart">
+                                <a href="addtoCart/{{book.id}}">Add To Cart</a>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+                {% endif %}
+
+            </div>
+        </div>
 
 
-
-                <!--swiper  slider end-->
+        <!--swiper  slider end-->
     </main>
     <script>
         $('nav ul li.btn span').click(function () {
