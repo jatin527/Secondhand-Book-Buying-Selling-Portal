@@ -12,8 +12,9 @@ class customerUser(AbstractUser):
     contact_no = models.CharField(max_length=10)
     city = models.CharField(max_length=15)
     username = models.CharField(max_length=50)
+    address = models.CharField(max_length=250)
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['city', 'name', 'contact_no']
+    REQUIRED_FIELDS = ['city', 'name', 'contact_no', 'address']
 
     def __str__(self):
         return "{}".format(self.email)

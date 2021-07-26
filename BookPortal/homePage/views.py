@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import ViewBooks, Cart
+from .models import ViewBooks, Cart, Orders
 
 # Create your views here.
 
@@ -34,11 +34,11 @@ def sellBooks(request):
             try:
                 audio = request.FILES['audio']
                 book = ViewBooks(BookName=bookname, language=blang, author=authorName, description=bdistdet, category=category,
-                             condition=bdis, price=price, image=img, new=True, userid=request.user.email, purchasedate=date, publisher='testing123', audio=audio)
+                                 condition=bdis, price=price, image=img, new=True, userid=request.user.email, purchasedate=date, publisher='testing123', audio=audio)
             except:
-                
+
                 book = ViewBooks(BookName=bookname, language=blang, author=authorName, description=bdistdet, category=category,
-                             condition=bdis, price=price, image=img, new=True, userid=request.user.email, purchasedate=date, publisher='testing123')
+                                 condition=bdis, price=price, image=img, new=True, userid=request.user.email, purchasedate=date, publisher='testing123')
 
             book.save()
             return redirect('/')
@@ -88,12 +88,40 @@ def removecart(request, index):
     return redirect('/')
 
 
-def payment(request):
-    return render(request, 'payment.html', {'cart': 'cart'})
-
-
 def myorders(request):
-    return render(request, 'myorders.html')
+    orders = Orders.objects.filter(id_user=request.user.id)
+
+    books = []
+    for i in orders:
+        books.append(ViewBooks.objects.get(id=i.id_book))
+
+    return render(request, 'myorders.html', {'orders': orders, 'books': books})
+
+
+def paydone(request):
+    cart = Cart.objects.filter(id_user=request.user.id)
+    cartbooks = []
+    for i in cart:
+        print(i.id_book)
+        cartbooks.append(i.id_book)
+    for i in cartbooks:
+        books = ViewBooks.objects.get(id=i)
+        books.status = 'sold'
+        books.save()
+    for i in cartbooks:
+        orders = Orders.objects.create(
+            id_book=i, id_user=request.user.id, status="To be dispached")
+
+    books = ViewBooks.objects.all()
+    try:
+        cart = Cart.objects.filter(id_user=request.user.id)
+        citems = []
+        for i in cart:
+            citems.append(i.id_book)
+    except:
+        citems = ''
+
+    return render(request, 'index1.html', {'books': books, 'cart': citems})
 
 
 def cart(request):
@@ -127,6 +155,46 @@ def login(request):
 
 def register(request):
     return render(request, 'register.html')
+
+
+def filtercat(request, cat):
+    books = ViewBooks.objects.filter(category=cat)
+    try:
+        cart = Cart.objects.filter(id_user=request.user.id)
+        citems = []
+        for i in cart:
+            citems.append(i.id_book)
+    except:
+        citems = ''
+
+    return render(request, 'index1.html', {'books': books, 'cart': citems})
+
+
+def add(request):
+    return render(request, 'addressform.html')
+
+
+def paym(request):
+    return render(request, 'payment1.html')
+
+
+def filtertype(request, type):
+    bt = False
+    if type == 'new':
+        bt = True
+    else:
+        bt = False
+
+    books = ViewBooks.objects.filter(new=bt)
+    try:
+        cart = Cart.objects.filter(id_user=request.user.id)
+        citems = []
+        for i in cart:
+            citems.append(i.id_book)
+    except:
+        citems = ''
+
+    return render(request, 'index1.html', {'books': books, 'cart': citems})
 
 
 def error_404(request, exception):

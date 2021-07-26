@@ -99,7 +99,7 @@
                                 class="fas fa-home"></i> Home</a></li>
                     <li class="nav-item"
                         style="color: #ffffff;font-family: Montserrat, sans-serif;font-weight: bold;font-style: normal;font-size: 18px;">
-                        <a class="nav-link" href="#"
+                        <a class="nav-link" href="viewCart"
                             style="color: #ffffff;font-family: Montserrat, sans-serif;font-weight: bold;font-style: normal;font-size: 18px;"><i
                                 class="fas fa-shopping-cart"></i> My Cart</a></li>
                     {% if user.is_authenticated %}
@@ -154,8 +154,9 @@
       <button onclick="myFunction()" class="dropbtn">Filter by type </button>
       <div id="myDropdown" class="dropdown-content">
         <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-        <a href="#">New</a>
-        <a href="#">Old</a>
+        <a href="/filtertype/new">New</a>
+        <a href="/filtertype/old">Old</a>
+        <a href="/">All</a>
       </div>
   </div>
   </div>
@@ -185,7 +186,7 @@ function filterFunction() {
 <div class="container" style="padding: 43px;">
   <div class="row">
     {% for book in books %}
-    
+    {% if book.status != 'sold' and book.user != user.email%}
     <div class="col-md-3">
       <div class="shadow-lg bg-white p-4 mb-4 rounded">
       <div class="box" >
@@ -207,6 +208,7 @@ function filterFunction() {
     
     </div>
   </div>
+    {% endif %}
     {% endfor %}
   </div>
 </div>
